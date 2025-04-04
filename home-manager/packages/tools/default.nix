@@ -1,0 +1,67 @@
+{ pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    bat
+    brotli
+    c-ares
+    coreutils
+    direnv
+    fluxcd
+    fontconfig
+    freetype
+    fzf
+    gettext
+    git
+    git-lfs
+    gmp
+    gnupg
+    gnutls
+    kubernetes-helm
+    icu
+    iproute2mac
+    jansson
+    jq
+    k9s
+    ko
+    krb5
+    kubectx
+    kubectl
+    kustomize
+    lazygit
+    lua
+    lz4
+    mongodb-tools
+    mpdecimal
+    msgpack
+    mtr
+    ncurses
+    nettle
+    nmap
+    nodejs
+    npth
+    oniguruma
+    openssl
+    p11-kit
+    pcre2
+    pinentry_mac
+    pkg-config
+    popt
+    pwgen
+    python3
+    readline
+    ripgrep
+    rpm
+    sqlite
+    stern
+    tree-sitter
+    unbound
+    unibilium
+    utf8proc
+    vault
+    vegeta
+    wget
+    xclip
+    xz
+  ];
+}
