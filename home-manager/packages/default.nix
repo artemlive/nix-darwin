@@ -16,6 +16,7 @@
     _1password-cli
     direnv
     cachix
+    fzf
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
