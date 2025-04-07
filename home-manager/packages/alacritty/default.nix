@@ -3,11 +3,9 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        general = {
-          import = [
+        import = [
             pkgs.alacritty-theme.rose_pine
         ]; 
-        };
         env = {
           TERM = "xterm-256color";
         };
