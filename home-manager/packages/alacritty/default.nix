@@ -3,9 +3,11 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        import = [
+        general = {
+          import = [
             pkgs.alacritty-theme.rose_pine
         ]; 
+        };
         env = {
           TERM = "xterm-256color";
         };
@@ -20,12 +22,12 @@
           };
           option_as_alt = "Both";
         };
-  
-        shell = {
-          program = "/bin/zsh";
-          args = [ "-l" ];
-        };
-  
+        terminal = { 
+          shell = {
+            program = "/bin/zsh";
+            args = [ "-l" ];
+          };
+        }; 
         font = {
           normal = {
             family = "0xProto Nerd Font";
