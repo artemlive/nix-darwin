@@ -3,9 +3,9 @@
   home.sessionVariables = {
     SHELL = "${pkgs.zsh}/bin/zsh";
   };
-  home.sessionPath = [
-	  "${pkgs.neovim}/bin"
-  ];
+  #  home.sessionPath = [
+  #	  "${pkgs.neovim-unwrapped}/bin"
+  #];
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -18,7 +18,19 @@
        source "$HOME/.zsh/plugins/zsh-kubectl-prompt/zsh-kubectl-prompt.plugin.zsh"
        autoload -Uz colors && colors
        RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
-       
+
+       start_yabai() {
+          launchctl load ~/Library/LaunchAgents/org.nixos.yabai.plist
+       }
+
+       stop_yabai() {
+          launchctl unload ~/Library/LaunchAgents/org.nixos.yabai.plist
+       }
+
+       restart_yabai() {
+          stop_yabai
+          start_yabai
+       }
        flowschema_sa() {
          kubectl get po --v=8 --as system:serviceaccount:kube-system:"$1" 2>&1 | grep -i x-kubernetes-pf
        }

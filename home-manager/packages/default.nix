@@ -20,7 +20,7 @@
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
-  home.stateVersion = "24.11"; 
+  home.stateVersion = "25.11"; 
 
   home.sessionVariables = {
     EDITOR = "nvim";

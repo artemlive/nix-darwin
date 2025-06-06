@@ -1,9 +1,6 @@
 { pkgs, lib, ... }:
 {
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-bin;
-  };
+  home.packages = [ pkgs.firefox-bin ];
   home.activation.linkFirefoxChrome = lib.hm.dag.entryAfter ["writeBoundary"] ''
     PROFILE_DIR=$(find "$HOME/Library/Application Support/Firefox/Profiles" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
 
