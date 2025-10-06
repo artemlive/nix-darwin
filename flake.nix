@@ -34,7 +34,7 @@
 
 
           system.stateVersion = 6;
-          ids.gids.nixbld = 30000;
+  	  ids.gids.nixbld = 350;
 
           services = {
             skhd = {
@@ -70,7 +70,7 @@
           };
         });
     in {
-      darwinConfigurations."urva-NVC2WY0X0J-MBP" = darwin.lib.darwinSystem {
+      darwinConfigurations."kid-NVC2WY0X0J-MBP" = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -83,8 +83,8 @@
             };
           }
           (commonSettings {
-            user = "artemlive1";
-            homePath = "/Users/artemlive1";
+            user = "artemlive";
+            homePath = "/Users/artemlive";
           })
         ];
       };

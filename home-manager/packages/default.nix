@@ -17,6 +17,7 @@
     direnv
     cachix
     fzf
+    gh
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
