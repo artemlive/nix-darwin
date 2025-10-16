@@ -18,6 +18,10 @@
     cachix
     fzf
     gh
+    go
+    golangci-lint
+    golangci-lint-langserver
+    nodejs
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
