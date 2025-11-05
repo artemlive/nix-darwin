@@ -21,6 +21,7 @@ return {
     { '<leader>gS', '<cmd>Octo search<CR>', desc = 'Search (Octo)' },
     { '<leader>gC', '<cmd>Octo pr create draft<cr>', desc = '[G]it Pull Request [C]reate' },
     { '<leader>gR', '<cmd>Octo pr ready<cr>', desc = '[G]it Pull Request [R]eady' },
+    { '<leader>go', '<cmd>Octo pr browser<cr>', desc = '[G]it [O]pen PR in browser' },
 
     { '<localleader>a', '', desc = '+assignee (Octo)', ft = 'octo' },
     { '<localleader>c', '', desc = '+comment/code (Octo)', ft = 'octo' },
