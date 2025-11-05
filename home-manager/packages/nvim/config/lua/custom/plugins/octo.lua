@@ -13,6 +13,13 @@ return {
       mappings_disable_default = false,
       default_merge_method = 'squash',
       default_delete_branch = true,
+      mappings = {
+        submit_win = {
+          approve_review = { lhs = '<C-p>', desc = 'approve review', mode = { 'n', 'i' } },
+          comment_review = { lhs = '<C-m>', desc = 'comment review' },
+          request_changes = { lhs = '<C-r>', desc = 'request changes review' },
+        },
+      },
     }
   end,
   keys = {
@@ -36,7 +43,4 @@ return {
     { '@', '@<C-x><C-o>', mode = 'i', ft = 'octo', silent = true },
     { '#', '#<C-x><C-o>', mode = 'i', ft = 'octo', silent = true },
   },
-  config = function()
-    require('octo').setup {}
-  end,
 }
