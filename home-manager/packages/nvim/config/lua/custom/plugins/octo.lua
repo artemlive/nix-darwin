@@ -6,6 +6,8 @@ return {
     'ibhagwan/fzf-lua',
     'nvim-tree/nvim-web-devicons',
   },
+  cmd = 'Octo',
+  event = { { event = 'BufReadCmd', pattern = 'octo://*' } },
   config = function()
     require('octo').setup {
       mappings_disable_default = false,
