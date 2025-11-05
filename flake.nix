@@ -41,7 +41,6 @@
               enable = true;
               skhdConfig = builtins.readFile ./home-manager/packages/skhd/skhdrc;
             };
-
             yabai = {
               enable = true;
               extraConfig = builtins.readFile ./home-manager/packages/yabai/yabairc;
