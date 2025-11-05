@@ -22,6 +22,7 @@
     golangci-lint
     golangci-lint-langserver
     nodejs
+    google-cloud-sdk
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
