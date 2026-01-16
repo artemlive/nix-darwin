@@ -23,6 +23,17 @@
     golangci-lint-langserver
     nodejs
     google-cloud-sdk
+    autoconf
+    autoconf-archive
+    automake
+    ccache
+    cmake
+    libtool
+    nasm
+    ninja
+    pkg-config
+    virtualenv
+    bash
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
