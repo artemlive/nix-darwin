@@ -13,6 +13,7 @@
       "top" = "btop";
       "grep" = "rg";
       "k" = "kubectl";
+      "vim" = "nvim";
     };
     initExtra = ''
        source "$HOME/.zsh/plugins/zsh-kubectl-prompt/zsh-kubectl-prompt.plugin.zsh"
