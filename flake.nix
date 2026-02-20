@@ -8,6 +8,7 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     devenv.url = "github:cachix/devenv/latest";
+    unstable.url = "github:NixOS/nixpkgs/master";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
@@ -21,6 +22,16 @@
           nixpkgs.overlays = [
             inputs.alacritty-theme.overlays.default
             inputs.nixpkgs-firefox-darwin.overlay
+          
+            (final: prev:
+              let
+                unstablePkgs = import inputs.unstable {
+                  system = prev.system;
+                  config.allowUnfree = true;
+                };
+              in {
+                cursor-cli = unstablePkgs.cursor-cli;
+              })
           ];
 
           users.users.${user} = {
