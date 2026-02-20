@@ -34,6 +34,7 @@
     pkg-config
     virtualenv
     bash
+    bashInteractive
     cursor-cli
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
