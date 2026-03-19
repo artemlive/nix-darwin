@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
-    devenv.url = "github:cachix/devenv/latest";
+    devenv.url = "github:cachix/devenv/main";
     unstable.url = "github:NixOS/nixpkgs/master";
   };
 
@@ -31,6 +31,7 @@
                 };
               in {
                 cursor-cli = unstablePkgs.cursor-cli;
+                opencode = unstablePkgs.opencode;
               })
           ];
 

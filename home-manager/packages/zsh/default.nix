@@ -15,7 +15,8 @@
       "k" = "kubectl";
       "vim" = "nvim";
     };
-    initExtra = ''
+    initContent = ''
+       export PATH="/etc/profiles/per-user/$USER/bin:/run/current-system/sw/bin:$PATH"
        source "$HOME/.zsh/plugins/zsh-kubectl-prompt/zsh-kubectl-prompt.plugin.zsh"
        autoload -Uz colors && colors
        RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
@@ -58,6 +59,17 @@
          else
            echo "OPENAI_API_KEY is already set 🔒"
          fi
+       }
+       talos-profile() {
+        local profile="$1"
+        local ip="$2"
+        shift
+        shift
+        talosctl \
+          --talosconfig "~/.config/talos/talosconfig.$profile" \
+          --endpoints "$talosip" \
+          --nodes "$talosip" \
+          "$@"
        }
 	''; 
      plugins = [

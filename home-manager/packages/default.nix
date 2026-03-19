@@ -9,6 +9,7 @@
     ./ff
     ./fonts
     ./tools
+    ./opencode
   ];
 
   home.packages = with pkgs; [
@@ -34,7 +35,7 @@
     pkg-config
     virtualenv
     bash
-    bashInteractive
+    opencode
     cursor-cli
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
