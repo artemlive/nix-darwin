@@ -30,7 +30,6 @@
                   config.allowUnfree = true;
                 };
               in {
-                cursor-cli = unstablePkgs.cursor-cli;
                 opencode = unstablePkgs.opencode;
               })
           ];

@@ -10,6 +10,9 @@
     ./fonts
     ./tools
     ./opencode
+    ./cursor-cli
+    ./claude-cli
+    ./helm4
   ];
 
   home.packages = with pkgs; [
@@ -36,7 +39,6 @@
     virtualenv
     bash
     opencode
-    cursor-cli
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
