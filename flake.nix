@@ -100,7 +100,7 @@
         ];
       };
 
-      darwinConfigurations."personal-mac" = darwin.lib.darwinSystem {
+      darwinConfigurations."quark-mac" = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
