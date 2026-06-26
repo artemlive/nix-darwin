@@ -111,6 +111,10 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
             };
+            system.activationScripts.postActivation.text = ''
+            mkdir -p /usr/local/bin
+            ln -snf /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot
+            '';
           }
           (commonSettings {
             user = "artemlive";
