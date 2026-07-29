@@ -63,5 +63,7 @@
     wget
     xclip
     xz
+    yarn
+    zed-editor
   ];
 }

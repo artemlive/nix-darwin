@@ -13,6 +13,7 @@
     ./cursor-cli
     ./claude-cli
     ./helm4
+    ./herdr
   ];
 
   home.packages = with pkgs; [

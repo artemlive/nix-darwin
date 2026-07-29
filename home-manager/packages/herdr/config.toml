@@ -1,0 +1,86 @@
+# Herdr Configuration
+# Migrated from tmux settings
+
+# Skip onboarding since we're configuring manually
+onboarding = false
+
+[keys]
+# Prefix key - matching tmux's C-a instead of default C-b
+prefix = "ctrl+a"
+
+# Splitting panes - using - and \ for intuitive splits
+# prefix + \ for vertical (side-by-side)
+# prefix + - for horizontal (top-bottom)
+split_vertical = "prefix+backslash"  # \ for side-by-side split
+split_horizontal = "prefix+minus"      # - for top-bottom split
+
+# Tab navigation - matching tmux window navigation
+# tmux: bind-key p select-window -t :-
+# tmux: bind-key n select-window -t :+
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+
+# Pane navigation - matching tmux vim-style navigation
+# tmux: bind -r h select-pane -L
+# tmux: bind -r j select-pane -D
+# tmux: bind -r k select-pane -U
+# tmux: bind -r l select-pane -R
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Pane resizing - herdr uses resize_mode instead of individual resize keys
+# Enter resize mode with prefix+r, then use h/j/k/l to resize
+# tmux had: bind -r -T prefix -/=/,/. for resize
+# In herdr resize mode: h/j/k/l resize, Esc/Enter to exit
+resize_mode = "prefix+r"
+
+# Maximize/zoom pane - using herdr's default
+zoom = "prefix+z"
+
+# Reload config - matching tmux's prefix+r
+# Note: Use "herdr server reload-config" or the global menu
+
+# Navigate mode shortcuts (vim-style, no prefix needed in navigate mode)
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+[terminal]
+# Default shell - matching tmux's zsh preference
+default_shell = "zsh"
+
+# macOS login shell behavior
+shell_mode = "auto"
+
+# Follow the current working directory
+new_cwd = "follow"
+
+[theme]
+# Matching tmux's catppuccin theme
+name = "catppuccin"
+
+[ui.sidebar.agents]
+# Compact layout similar to tmux status bar
+row_gap = 0
+rows = [
+  ["state_icon", "workspace", "tab"],
+  ["agent"],
+]
+
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace"],
+  ["branch", "git_status"],
+]
+
+[ui.toast]
+# Notification settings
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
