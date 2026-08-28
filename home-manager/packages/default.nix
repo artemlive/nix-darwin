@@ -5,6 +5,7 @@
     ./zsh
     ./nvim
     ./alacritty
+    ./kitty
     ./tmux
     ./ff
     ./fonts
@@ -14,6 +15,9 @@
     ./claude-cli
     ./helm4
     ./herdr
+    ./pi
+    ./mcp-grafana
+    ./slk
   ];
 
   home.packages = with pkgs; [
@@ -48,7 +52,20 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     DIRENV_LOG_FORMAT = "";
+    NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.npm-global";
   };
+  
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.npm-global/bin"
+  ];
+
+  # Create npm global directory
+  home.file.".npm-global/.keep".text = "";
+  
+  # Configure npm to use local prefix
+  home.file.".npmrc".text = ''
+    prefix=${config.home.homeDirectory}/.npm-global
+  '';
 
   programs.home-manager.enable = true;
 }

@@ -17,6 +17,11 @@
     };
     initContent = ''
        export PATH="/etc/profiles/per-user/$USER/bin:/run/current-system/sw/bin:$PATH"
+       
+       # npm global packages in user directory
+       export NPM_CONFIG_PREFIX="$HOME/.npm-global"
+       export PATH="$HOME/.npm-global/bin:$PATH"
+       
        source "$HOME/.zsh/plugins/zsh-kubectl-prompt/zsh-kubectl-prompt.plugin.zsh"
        autoload -Uz colors && colors
        RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'

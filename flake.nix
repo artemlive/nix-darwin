@@ -9,6 +9,7 @@
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     devenv.url = "github:cachix/devenv/v2.1.2";
     unstable.url = "github:NixOS/nixpkgs/master";
+    pi.url = "github:lukasl-dev/pi.nix";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
@@ -75,9 +76,15 @@
           nix.settings = {
             trusted-users = [ "root" user ];
             build-users-group = "nixbld";
-            extra-substituters = [ "https://devenv.cachix.org" ];
+            extra-substituters = [ 
+              "https://devenv.cachix.org"
+              "https://pi.cachix.org"
+              "https://nix-community.cachix.org"
+            ];
             extra-trusted-public-keys = [
               "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+              "pi.cachix.org-1:lGeoGJaZ5ZDabuRzkcD5EBTNnDM4HJ1vqeOxlWk1Flk="
+              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
             ];
             experimental-features = [ "nix-command" "flakes" ];
           };
@@ -94,6 +101,7 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
             };
+            home-manager.backupFileExtension = "backup";
           }
           (commonSettings {
             user = "artemlive";
@@ -113,6 +121,7 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
             };
+            home-manager.backupFileExtension = "backup";
             system.activationScripts.postActivation.text = ''
             mkdir -p /usr/local/bin
             ln -snf /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot

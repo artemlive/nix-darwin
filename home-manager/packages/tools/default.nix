@@ -33,7 +33,7 @@
     lz4
     mongodb-tools
     mpdecimal
-    msgpack
+    msgpack-c
     mtr
     ncurses
     nettle

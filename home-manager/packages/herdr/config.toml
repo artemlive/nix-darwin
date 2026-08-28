@@ -48,6 +48,11 @@ navigate_pane_down = "j"
 navigate_pane_up = "k"
 navigate_pane_right = "l"
 
+# Workspace navigation - using j/k due to Alacritty 0.17 bug with arrow keys
+# See: https://github.com/herdrdev/herdr/issues/3328
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+
 [terminal]
 # Default shell - matching tmux's zsh preference
 default_shell = "zsh"
@@ -84,3 +89,7 @@ delay_seconds = 1
 
 [ui.toast.herdr]
 position = "bottom-right"
+
+[experimental]
+# Enable kitty graphics protocol for inline images in supported terminals (kitty, ghostty, wezterm)
+kitty_graphics = true
