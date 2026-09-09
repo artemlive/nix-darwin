@@ -90,7 +90,8 @@
           };
         });
     in {
-      darwinConfigurations."kid-NVC2WY0X0J-MBP" = darwin.lib.darwinSystem {
+      # Default configuration for new machines
+      darwinConfigurations.default = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -110,6 +111,7 @@
         ];
       };
 
+      # quark-mac with Godot symlink
       darwinConfigurations."quark-mac" = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {
@@ -123,8 +125,8 @@
             };
             home-manager.backupFileExtension = "backup";
             system.activationScripts.postActivation.text = ''
-            mkdir -p /usr/local/bin
-            ln -snf /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot
+              mkdir -p /usr/local/bin
+              ln -snf /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot
             '';
           }
           (commonSettings {
