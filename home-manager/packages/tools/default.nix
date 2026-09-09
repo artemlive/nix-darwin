@@ -39,6 +39,16 @@
     nettle
     nmap
     nodejs
+    # OrbStack also ships kubectl + completions; drop them so they do not
+    # collide with pkgs.kubectl.
+    (orbstack.overrideAttrs (_: {
+      postInstall = ''
+        installShellCompletion --bash "$out"/Applications/OrbStack.app/Contents/Resources/completions/bash/{docker,orbctl}.bash
+        installShellCompletion --zsh "$out"/Applications/OrbStack.app/Contents/Resources/completions/zsh/{_docker,_orb,_orbctl}
+        installShellCompletion --fish "$out"/Applications/OrbStack.app/Contents/Resources/completions/fish/{docker,orbctl}.fish
+        rm -f $out/bin/kubectl
+      '';
+    }))
     npth
     oniguruma
     openssl
