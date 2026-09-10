@@ -10,6 +10,7 @@
     devenv.url = "github:cachix/devenv/v2.1.2";
     unstable.url = "github:NixOS/nixpkgs/master";
     pi.url = "github:lukasl-dev/pi.nix";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
@@ -98,6 +99,7 @@
         };
         modules = [
           home-manager.darwinModules.home-manager
+          inputs.nix-homebrew.darwinModules.nix-homebrew
           {
             home-manager.extraSpecialArgs = {
               inherit inputs;
@@ -108,6 +110,17 @@
             user = "artemlive";
             homePath = "/Users/artemlive";
           })
+          {
+            nix-homebrew = {
+              enable = true;
+              user = "artemlive";
+              autoMigrate = true;
+            };
+            # Standalone Tailscale.app (menu bar GUI). Do not also enable
+            # services.tailscale — that is the CLI-only tailscaled daemon.
+            homebrew.enable = true;
+            homebrew.casks = [ "tailscale-app" ];
+          }
         ];
       };
 
