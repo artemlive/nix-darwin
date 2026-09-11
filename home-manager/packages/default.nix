@@ -47,7 +47,14 @@
     inputs.devenv.packages."${pkgs.system}".devenv
   ];
 
-  home.stateVersion = "25.11"; 
+  home.stateVersion = "25.11";
+
+  # 25.11 defaults to copyApps, which needs TCC App Management and often
+  # aborts darwin-rebuild. Keep the older ~/Applications symlink layout.
+  targets.darwin = {
+    copyApps.enable = false;
+    linkApps.enable = true;
+  }; 
 
   home.sessionVariables = {
     EDITOR = "nvim";

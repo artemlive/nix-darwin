@@ -119,7 +119,10 @@
             # Standalone Tailscale.app (menu bar GUI). Do not also enable
             # services.tailscale — that is the CLI-only tailscaled daemon.
             homebrew.enable = true;
-            homebrew.casks = [ "tailscale-app" ];
+            homebrew.casks = [
+              "tailscale-app"
+              "ollama-app"
+            ];
           }
         ];
       };
