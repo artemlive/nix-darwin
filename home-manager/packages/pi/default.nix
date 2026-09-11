@@ -16,6 +16,7 @@
     settings = {
       defaultProvider = "ollama";
       defaultModel = "qwen3.8-pi:27b";
+      enableSkillCommands = true;
     };
 
     # Set Anthropic API key
