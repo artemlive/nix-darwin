@@ -1,7 +1,9 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = 'master',
+  -- 0.1.x still calls vim.treesitter.language.ft_to_lang (removed in Neovim 0.11+).
+  -- lazy-lock.json was pinning 0.1.x; pin master so :Lazy update actually moves.
+  commit = '40aedd8a68c78a656a10a8d62d80c54af59420fb',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -71,6 +73,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --
       defaults = {
         layout_strategy = 'vertical',
+        -- Avoid 0.1.x preview crash if the lock file has not been updated yet.
+        preview = { treesitter = false },
       },
 
       pickers = {
