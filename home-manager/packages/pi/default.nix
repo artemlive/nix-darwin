@@ -19,7 +19,7 @@
       enableSkillCommands = true;
       # jq merge is `existing * nix`, so this array replaces packages on each `pi` start.
       packages = [
-        "npm:@0xkobold/pi-cursor"
+        "npm:pi-cursor-sdk"
       ];
     };
 
