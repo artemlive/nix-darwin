@@ -17,6 +17,10 @@
       defaultProvider = "ollama";
       defaultModel = "qwen3.8-pi:27b";
       enableSkillCommands = true;
+      # jq merge is `existing * nix`, so this array replaces packages on each `pi` start.
+      packages = [
+        "npm:@0xkobold/pi-cursor"
+      ];
     };
 
     # Set Anthropic API key
