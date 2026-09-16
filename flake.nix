@@ -17,7 +17,7 @@
     let
       system = "aarch64-darwin";
 
-      commonSettings = { user, homePath }:
+      commonSettings = { user, homePath, homeModules ? [ ] }:
         ({ pkgs, config, inputs, ... }: {
           nixpkgs.hostPlatform = system;
           nixpkgs.config.allowUnfree = true;
@@ -45,7 +45,9 @@
           system.primaryUser = user;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${user} = import home-manager/packages;
+          home-manager.users.${user} = {
+            imports = [ ./home-manager/packages ] ++ homeModules;
+          };
 
 
           system.stateVersion = 6;
@@ -109,6 +111,7 @@
           (commonSettings {
             user = "artemlive";
             homePath = "/Users/artemlive";
+            homeModules = [ ./home-manager/hosts/default.nix ];
           })
           {
             nix-homebrew = {
@@ -148,6 +151,7 @@
           (commonSettings {
             user = "artemlive";
             homePath = "/Users/artemlive";
+            homeModules = [ ./home-manager/hosts/quark-mac.nix ];
           })
         ];
       };

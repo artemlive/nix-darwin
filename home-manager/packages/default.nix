@@ -16,7 +16,7 @@
     ./helm4
     ./herdr
     ./pi
-    ./mcp-grafana
+    ./mcp
     ./slk
   ];
 

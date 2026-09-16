@@ -20,8 +20,13 @@
       # jq merge is `existing * nix`, so this array replaces packages on each `pi` start.
       packages = [
         "npm:pi-cursor-sdk"
+        "npm:pi-mcp-adapter"
       ];
+      theme = "neon-green";
     };
+
+    # From https://github.com/luongnv89/pi-extensions (themes/neon-green.json)
+    themes = [ ./themes/neon-green.json ];
 
     # Set Anthropic API key
     # Option 1: Set directly (not recommended for security)
