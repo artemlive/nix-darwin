@@ -21,8 +21,22 @@
       packages = [
         "npm:pi-cursor-sdk"
         "npm:pi-mcp-adapter"
+        "npm:pi-image-paste"
+        "npm:pi-mermaid"
       ];
       theme = "neon-green";
+      # Auto 300k trips compact at 94.5% while Cursor occupancy stays ~95%.
+      compaction = {
+        enabled = true;
+        keepRecentTokens = 8000;
+        reserveTokens = 8192;
+        modelOverrides = {
+          "cursor/auto-smart" = {
+            reserveTokens = 4096;
+            keepRecentTokens = 8000;
+          };
+        };
+      };
     };
 
     # From https://github.com/luongnv89/pi-extensions (themes/neon-green.json)
