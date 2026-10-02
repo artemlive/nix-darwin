@@ -16,12 +16,13 @@ See the above repository for updates as well as full license text. */
 #main-window > body > #browser,
 .global-notificationbox,
  #tab-notification-deck,
+ #notifications-toolbar,
  #toolbar-menubar{
   order: -1;
 }
 
 #TabsToolbar{
-  max-height: calc((var(--tab-min-height) + 2 * var(--tab-block-margin,0px)) * var(--multirow-n-rows,1));
+  max-height: calc((var(--tab-min-height) + 2 * var(--tab-margin-block,var(--tab-block-margin,0px))) * var(--multirow-n-rows,1));
 }
 #toolbar-menubar,
 #TabsToolbar{
@@ -48,17 +49,17 @@ See the above repository for updates as well as full license text. */
 
 #nav-bar,
 #PersonalToolbar{
-  background-image: linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)), var(--lwt-additional-images,var(--toolbar-bgimage)) !important;
+  background-image: linear-gradient(var(--toolbar-background-color,var(--toolbar-bgcolor))), var(--lwt-additional-images,var(--toolbar-bgimage)) !important;
   background-position: top,var(--lwt-background-alignment);
-  background-position-y: calc(0px - var(--tab-min-height) - 2*var(--tab-block-margin,0px));
+  background-position-y: calc(0px - var(--tab-min-height) - 2*var(--tab-margin-block,var(--tab-block-margin,0px)));
   background-repeat: repeat,var(--lwt-background-tiling);
 }
 :root[lwtheme-image] #nav-bar,
 :root[lwtheme-image] #PersonalToolbar{
-  background-image: linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),var(--lwt-header-image), var(--lwt-additional-images,var(--toolbar-bgimage)) !important;
+  background-image: linear-gradient(var(--toolbar-background-color,var(--toolbar-bgcolor))),var(--lwt-header-image), var(--lwt-additional-images,var(--toolbar-bgimage)) !important;
 }
 #PersonalToolbar{
-  background-position-y: calc(0px - var(--tab-min-height) - 2*var(--tab-block-margin,0px) - var( --uc-navbar-height));
+  background-position-y: calc(0px - var(--tab-min-height) - 2*var(--tab-margin-block,var(--tab-block-margin,0px)) - var( --uc-navbar-height));
 }
 #urlbar[breakout][breakout-extend]{
   display: flex !important;
@@ -70,10 +71,38 @@ See the above repository for updates as well as full license text. */
   content: "";
   height: calc(var(--urlbar-min-height) - 2px - 2 * var(--urlbar-container-padding));
 }
+.urlbar:not([breakout])[open]{
+  --urlbarView-margin-block: 0px;
+  > .urlbarView:popover-open{
+    position-area: block-start center !important;
+    > .urlbarView-background{
+      border-start-end-radius: var(--urlbar-background-border-top-radius-open) !important;
+      border-start-start-radius: var(--urlbar-background-border-top-radius-open) !important;
+      border-end-end-radius: 0 !important;
+      border-end-start-radius: 0 !important;
+      inset-block: calc(-1 * var(--urlbar-joint-background-overlap)) calc(1 * var(--urlbarView-joint-background-outset-block)) !important;
+      clip-path: none !important;
+    }
+    :where(.urlbar:not([noresults])) > & {
+      padding-block: 0 var(--urlbarView-padding) !important;
+    }
+  }
+}
+.urlbar-background {
+  .urlbar:not([breakout])[open] > & {
+    clip-path: none !important;
+    inset-block-end: calc(-1 * (var(--urlbar-background-overhang-open) + var(--urlbar-input-growth-open-block))) !important;
+    border-start-end-radius: 0 !important;
+    border-start-start-radius: 0 !important;
+    border-end-end-radius: var(--urlbar-background-border-top-radius-open) !important;
+    border-end-start-radius: var(--urlbar-background-border-top-radius-open) !important;
+  }
+}
 .urlbarView-body-inner{ border-top-style: none !important; }
-
-@media (-moz-bool-pref: "userchrome.toolbars-below-content.tabs-at-bottom.enabled"),
-       -moz-pref("userchrome.toolbars-below-content.tabs-at-bottom.enabled"){
+.searchmode-switcher[offscreen]{
+  top: 999px !important;
+}
+@media -moz-pref("userchrome.toolbars-below-content.tabs-at-bottom.enabled"){
   #TabsToolbar{
     order: 3
   }
