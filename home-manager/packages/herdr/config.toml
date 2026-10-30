@@ -39,6 +39,11 @@ resize_mode = "prefix+r"
 # Maximize/zoom pane - using herdr's default
 zoom = "prefix+z"
 
+# Agent panel — prefix+[ is copy mode, so use comma/period instead
+previous_agent = "prefix+comma"
+next_agent = "prefix+period"
+focus_agent = "prefix+alt+1..9"
+
 # Reload config - matching tmux's prefix+r
 # Note: Use "herdr server reload-config" or the global menu
 
