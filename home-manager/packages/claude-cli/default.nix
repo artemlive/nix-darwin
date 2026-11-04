@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  version = "2.1.80";
+  version = "2.1.317";
   
   # Map Nix system to Claude's naming convention
   platformMap = {
@@ -15,10 +15,10 @@ let
   
   # SHA256 hashes for each platform from manifest.json
   hashes = {
-    "darwin-x64" = "sha256-w01f2fSZLDI/Ao2FcOYtbRdLmHcSrIyLCSpkGoS+4qw=";
-    "darwin-arm64" = "sha256-28JdOPDaKHCf4i8kiwj4DnPy5DFw2+3v9HvYuX245zc=";
-    "linux-x64" = "sha256-Sfo896qrnVQGboXqoRkRt9JcYpqCrzI6drItsgKdT6I=";
-    "linux-arm64" = "sha256-gol9Xs1VpGakcWGyG0FwdegUnKgWABuhV5b/BTca/dU=";
+    "darwin-x64" = "sha256-AccUvH/r2wCPKOP2+ssdw35GpNj6jbWN8uKB7lHLMzw=";
+    "darwin-arm64" = "sha256-CfFTtGtd+eizRUcW1oKpGQHeAgy8pjD2HewaAVsytek=";
+    "linux-x64" = "sha256-6yJEGeNEV1+qSh85spC2SUJaEM1e4u8dADSAzZrlfrA=";
+    "linux-arm64" = "sha256-VjoNYK0MIj2UFXaCEJl6yw9xNOpR3Dwjjoi8Lhjd7vo=";
   };
   
   claude-cli = pkgs.stdenv.mkDerivation {

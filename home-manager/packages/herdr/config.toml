@@ -25,10 +25,10 @@ next_tab = "prefix+n"
 # tmux: bind -r j select-pane -D
 # tmux: bind -r k select-pane -U
 # tmux: bind -r l select-pane -R
-focus_pane_left = "prefix+h"
-focus_pane_down = "prefix+j"
-focus_pane_up = "prefix+k"
-focus_pane_right = "prefix+l"
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_up = ["prefix+k", "prefix+up"]
+focus_pane_right = ["prefix+l", "prefix+right"]
 
 # Pane resizing - herdr uses resize_mode instead of individual resize keys
 # Enter resize mode with prefix+r, then use h/j/k/l to resize
